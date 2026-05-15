@@ -3,25 +3,85 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --crimson: #991B1B;
+  --crimson-dark: #7F1D1D;
+  --crimson-light: #FEF2F2;
+  --crimson-mid: #DC2626;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #F1F5F9;
+  color: #0F172A;
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-lg border border-slate-200 p-6 shadow-none;
+  }
+  .card-sm {
+    @apply bg-white rounded-lg border border-slate-200 p-4;
+  }
+
+  /* Primary = deep crimson */
+  .btn-primary {
+    @apply font-semibold px-5 py-2.5 rounded-md transition-colors
+           disabled:opacity-40 disabled:cursor-not-allowed
+           text-white;
+    background-color: var(--crimson);
+  }
+  .btn-primary:not(:disabled):hover {
+    background-color: var(--crimson-dark);
+  }
+
+  .btn-secondary {
+    @apply bg-white text-slate-700 font-medium px-5 py-2.5 rounded-md
+           border border-slate-300 hover:bg-slate-50 transition-colors;
+  }
+  .btn-ghost {
+    @apply text-slate-500 hover:text-slate-800 font-medium px-3 py-1.5 rounded transition-colors text-sm;
+  }
+
+  /* Answer buttons */
+  .answer-btn-yes    { @apply border-2 border-green-600 bg-green-50 text-green-800 hover:bg-green-100 px-4 py-1.5 rounded-md text-sm font-medium transition-colors; }
+  .answer-btn-partial{ @apply border-2 border-amber-500 bg-amber-50 text-amber-800 hover:bg-amber-100 px-4 py-1.5 rounded-md text-sm font-medium transition-colors; }
+  .answer-btn-no     { @apply border-2 border-slate-400 bg-slate-50 text-slate-700 hover:bg-slate-100 px-4 py-1.5 rounded-md text-sm font-medium transition-colors; }
+  .answer-btn-na     { @apply border-2 border-slate-200 bg-slate-50 text-slate-400 hover:bg-slate-100 px-4 py-1.5 rounded-md text-sm font-medium transition-colors; }
+
+  /* Crimson focus ring */
+  .focus-crimson:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--crimson);
+  }
+
+  /* Horizontal rule with label */
+  .divider {
+    @apply border-t border-slate-200 my-6;
+  }
+
+  /* Legislation badge */
+  .leg-badge {
+    @apply text-xs font-semibold px-2 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200;
+  }
+
+  /* Risk tier badges */
+  .tier-1 { @apply bg-red-900 text-red-100; }
+  .tier-2 { @apply bg-orange-700 text-orange-50; }
+  .tier-3 { @apply bg-amber-600 text-amber-50; }
+  .tier-4 { @apply bg-emerald-700 text-emerald-50; }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+  .text-balance { text-wrap: balance; }
+  .text-crimson { color: var(--crimson); }
+  .bg-crimson { background-color: var(--crimson); }
+  .border-crimson { border-color: var(--crimson); }
+  .ring-crimson { --tw-ring-color: var(--crimson); }
+}
+
+/* Print styles for PDF export */
+@media print {
+  body { background: white !important; }
+  .no-print { display: none !important; }
+  .card { box-shadow: none; border: 1px solid #e2e8f0; }
 }
