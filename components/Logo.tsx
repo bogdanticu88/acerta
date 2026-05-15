@@ -5,8 +5,7 @@ interface LogoProps {
 }
 
 export function AcertaMark({ size = 48, theme = 'dark' }: { size?: number; theme?: 'dark' | 'light' }) {
-  const crimson = '#991B1B';
-  const shield  = theme === 'dark' ? '#991B1B' : '#991B1B';
+  const shield  = '#991B1B';
   const letter  = '#FFFFFF';
   const rim     = theme === 'dark' ? 'rgba(255,255,255,0.12)' : 'rgba(255,255,255,0.2)';
 
