@@ -12,8 +12,9 @@ const STAGES: { id: Stage; label: string; step: number }[] = [
 const ORDER: Stage[] = ['landing', 'irq', 'tier', 'ddq', 'osint', 'report'];
 
 export default function Nav() {
-  const stage = useStore((s) => s.stage);
-  const tier  = useStore((s) => s.tier);
+  const stage    = useStore((s) => s.stage);
+  const tier     = useStore((s) => s.tier);
+  const setStage = useStore((s) => s.setStage);
 
   if (stage === 'landing') return null;
 
@@ -24,13 +25,16 @@ export default function Nav() {
     <header className="bg-white border-b border-slate-200 sticky top-0 z-50">
       <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Brand */}
-        <div className="flex items-center gap-3">
+        <button
+          onClick={() => setStage('landing')}
+          className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+        >
           <span className="font-black text-[#991B1B] text-lg tracking-tight">Acerta</span>
           <span className="hidden sm:block text-slate-300 text-sm">|</span>
           <span className="hidden sm:block text-slate-400 text-xs font-medium uppercase tracking-widest">
             EU Vendor Security Due Diligence
           </span>
-        </div>
+        </button>
 
         {/* Step breadcrumb */}
         <nav className="hidden md:flex items-center gap-0.5">
