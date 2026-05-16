@@ -7,7 +7,7 @@ const TIER_LABELS = ['', 'Critical', 'High', 'Medium', 'Low'];
 const TIER_PILL = ['', 'tier-1', 'tier-2', 'tier-3', 'tier-4'];
 
 export default function Landing() {
-  const { setStage, loadMockVendor, setCIAAndTier } = useStore();
+  const { setStage, loadMockVendor, setCIAAndTier, reset } = useStore();
 
   function handleDemo(vendor: MockVendor) {
     loadMockVendor(vendor);
@@ -47,7 +47,7 @@ export default function Landing() {
 
             <div className="flex flex-wrap gap-3">
               <button
-                onClick={() => setStage('irq')}
+                onClick={() => { reset(); setStage('irq'); }}
                 className="bg-[#991B1B] hover:bg-[#7F1D1D] text-white font-semibold px-8 py-3.5 rounded-md transition-colors text-base"
               >
                 Start Assessment

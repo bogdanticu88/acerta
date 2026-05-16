@@ -70,8 +70,7 @@ export function computeFinalScore(
   osintScore: number,
   analystScore: number,
 ): number {
-  if (tier === 1) return Math.round(ddqScore * 0.5 + osintScore * 0.3 + analystScore * 0.2);
-  if (tier === 2) return Math.round(ddqScore * 0.6 + osintScore * 0.4);
+  if (tier <= 2) return Math.round(ddqScore * 0.5 + osintScore * 0.3 + analystScore * 0.2);
   return ddqScore;
 }
 
@@ -83,20 +82,6 @@ export function getDecision(score: number): Decision {
   if (score >= 40) return 'escalate';
   return 'reject';
 }
-
-export const DECISION_LABELS: Record<Decision, string> = {
-  approve: 'Approved',
-  conditional: 'Conditional Approval',
-  escalate: 'Escalate to CISO',
-  reject: 'Rejected',
-};
-
-export const DECISION_COLORS: Record<Decision, string> = {
-  approve: '#16a34a',
-  conditional: '#ca8a04',
-  escalate: '#ea580c',
-  reject: '#dc2626',
-};
 
 export const DECISION_DESCRIPTIONS: Record<Decision, string> = {
   approve: 'Vendor meets security requirements. Proceed with onboarding.',

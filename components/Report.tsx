@@ -9,6 +9,23 @@ import {
 } from '@/lib/scoring';
 import { RadarChart, PolarGrid, PolarAngleAxis, Radar, ResponsiveContainer } from 'recharts';
 
+const DOMAIN_SHORT_LABELS: Record<string, string> = {
+  'access-control':    'Access Ctrl',
+  'data-privacy':      'Data Privacy',
+  'incident-response': 'Incident Resp',
+  'business-continuity': 'BCP',
+  'ict-risk':          'ICT Risk',
+  'supply-chain':      'Supply Chain',
+  'ai-technology':     'AI / Tech',
+  'app-cloud-security': 'App Security',
+  'physical-security': 'Physical',
+  'certifications':    'Certs',
+  'contractual-legal': 'Legal',
+  'financial-viability': 'Financial',
+};
+
+const REASSESS_MONTHS: Record<number, number> = { 1: 6, 2: 12, 3: 24, 4: 36 };
+
 const DOMAIN_TIERS: Record<string, number[]> = {
   'access-control': [1,2,3,4], 'data-privacy': [1,2,3], 'incident-response': [1,2,3,4],
   'business-continuity': [1,2,3], 'ict-risk': [1,2], 'supply-chain': [1,2,3],
@@ -54,9 +71,12 @@ export default function Report() {
   const style       = DECISION_STYLE[decision];
 
   const today = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' });
+  const reassessDate = new Date();
+  reassessDate.setMonth(reassessDate.getMonth() + (REASSESS_MONTHS[tier] ?? 12));
+  const reassessBy = reassessDate.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
 
   const radarData = applicableDomains.map((d) => ({
-    subject: d.label.split(' ')[0],
+    subject: DOMAIN_SHORT_LABELS[d.id] ?? d.label,
     score: scoreDomain(byDomain[d.id] ?? [], ddqAnswers),
     fullMark: 100,
   }));
@@ -244,7 +264,7 @@ export default function Report() {
         <div><strong className="text-slate-600">Country:</strong> {vendor.country || '—'}</div>
         <div><strong className="text-slate-600">Assessment Date:</strong> {today}</div>
         <div><strong className="text-slate-600">Risk Tier:</strong> Tier {tier} — {TIER_LABELS[tier]}</div>
-        <div><strong className="text-slate-600">Next Re-assessment:</strong> {TIER_REASSESSMENT[tier]}</div>
+        <div><strong className="text-slate-600">Re-assess by:</strong> {reassessBy}</div>
         <div><strong className="text-slate-600">Framework:</strong> GDPR · NIS2 · DORA · EU AI Act</div>
       </div>
 

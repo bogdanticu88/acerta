@@ -68,10 +68,10 @@ export const MOCK_VENDORS: MockVendor[] = [
   },
   {
     id: 'medisoft',
-    name: 'MediSoft Solutions SL',
+    name: 'Workline Solutions SL',
     country: 'Spain',
     sector: 'HR & Payroll SaaS',
-    website: 'medisoft-hr.es',
+    website: 'workline-hr.es',
     description: 'HR and payroll SaaS processing employee personal data with read-write portal access.',
     label: 'Tier 3 — Medium (employee data, portal access)',
     irqAnswers: {
