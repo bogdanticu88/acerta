@@ -6,7 +6,13 @@
 
 <p align="center">
   <a href="https://bogdanticu88.github.io/acerta"><img src="https://img.shields.io/badge/demo-live-991B1B" alt="Live demo" /></a>
-  <a href="https://github.com/bogdanticu88/acerta/blob/main/LICENSE"><img src="https://img.shields.io/github/license/bogdanticu88/acerta?color=991B1B" alt="License" /></a>
+  <a href="https://github.com/bogdanticu88/acerta/actions/workflows/deploy.yml"><img src="https://img.shields.io/github/actions/workflow/status/bogdanticu88/acerta/deploy.yml?branch=master&label=deploy" alt="Deploy status" /></a>
+  <a href="https://github.com/bogdanticu88/acerta/stargazers"><img src="https://img.shields.io/github/stars/bogdanticu88/acerta?color=991B1B" alt="GitHub stars" /></a>
+  <a href="https://github.com/bogdanticu88/acerta/commits/master"><img src="https://img.shields.io/github/last-commit/bogdanticu88/acerta?color=991B1B" alt="Last commit" /></a>
+  <img src="https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Next.js-14-000000?logo=nextdotjs&logoColor=white" alt="Next.js" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
+  <a href="https://github.com/bogdanticu88/acerta/blob/master/LICENSE"><img src="https://img.shields.io/github/license/bogdanticu88/acerta?color=991B1B" alt="License" /></a>
 </p>
 
 ---
