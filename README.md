@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="public/logo.png" alt="Acerta" width="200" />
+</p>
+
 <h1 align="center">Acerta</h1>
 
 <p align="center">

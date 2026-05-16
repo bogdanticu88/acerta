@@ -11,8 +11,13 @@ const geistSans = localFont({
 export const metadata: Metadata = {
   title: 'Acerta — EU Vendor Security Due Diligence',
   description:
-    'State-of-the-art vendor security due diligence platform aligned to GDPR, NIS2 & DORA. CIA-based risk tiering with automated OSINT vetting.',
+    'Vendor security due diligence platform aligned to GDPR, NIS2 and DORA. CIA-based risk tiering with automated OSINT vetting.',
   keywords: 'vendor due diligence, GDPR, NIS2, DORA, third-party risk, OSINT, security assessment',
+  openGraph: {
+    title: 'Acerta — EU Vendor Security Due Diligence',
+    description: 'CIA-based risk tiering. OSINT-backed verification. Aligned to GDPR, NIS2 and DORA.',
+    images: [{ url: '/acerta/logo.png', width: 1024, height: 1024, alt: 'Acerta' }],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
