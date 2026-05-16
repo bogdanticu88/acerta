@@ -32,32 +32,38 @@ export default function Landing() {
             <div className="h-px flex-1 bg-slate-700" />
           </div>
 
-          <div className="max-w-3xl">
-            <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-4 leading-none">
-              Ac<span className="text-[#991B1B]">erta</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-slate-300 mb-6 font-light leading-relaxed">
-              Vendor trust, verified.<br />
-              CIA-based risk tiering. OSINT-backed verification.
-            </p>
-            <p className="text-slate-400 mb-10 max-w-xl">
-              Built for procurement and security teams operating under GDPR, NIS2 and DORA.
-              Not another Excel spreadsheet.
-            </p>
+          <div className="flex items-center justify-between gap-10">
+            <div className="max-w-3xl">
+              <h1 className="text-5xl md:text-7xl font-black tracking-tight mb-4 leading-none">
+                Ac<span className="text-[#991B1B]">erta</span>
+              </h1>
+              <p className="text-xl md:text-2xl text-slate-300 mb-6 font-light leading-relaxed">
+                Vendor trust, verified.<br />
+                CIA-based risk tiering. OSINT-backed verification.
+              </p>
+              <p className="text-slate-400 mb-10 max-w-xl">
+                Built for procurement and security teams operating under GDPR, NIS2 and DORA.
+                Not another Excel spreadsheet.
+              </p>
 
-            <div className="flex flex-wrap gap-3">
-              <button
-                onClick={() => { reset(); setStage('irq'); }}
-                className="bg-[#991B1B] hover:bg-[#7F1D1D] text-white font-semibold px-8 py-3.5 rounded-md transition-colors text-base"
-              >
-                Start Assessment
-              </button>
-              <a
-                href="#demo"
-                className="border border-slate-600 hover:border-slate-400 text-slate-300 hover:text-white font-semibold px-8 py-3.5 rounded-md transition-colors text-base"
-              >
-                View Demo Scenarios
-              </a>
+              <div className="flex flex-wrap gap-3">
+                <button
+                  onClick={() => { reset(); setStage('irq'); }}
+                  className="bg-[#991B1B] hover:bg-[#7F1D1D] text-white font-semibold px-8 py-3.5 rounded-md transition-colors text-base"
+                >
+                  Start Assessment
+                </button>
+                <a
+                  href="#demo"
+                  className="border border-slate-600 hover:border-slate-400 text-slate-300 hover:text-white font-semibold px-8 py-3.5 rounded-md transition-colors text-base"
+                >
+                  View Demo Scenarios
+                </a>
+              </div>
+            </div>
+
+            <div className="hidden lg:block shrink-0">
+              <img src="/acerta/logo.png" alt="Acerta" width={210} className="rounded-2xl opacity-90" />
             </div>
           </div>
 
